@@ -32,9 +32,9 @@ async function main() {
         messages: [
             {
                 role: "system",
-                content: `You are tasked with extracting meta information from the following sentence: ${userPromptThree}. Format the output as a JSON object with properties for the scene, subject, objects and actions that are found in the sentence. The scene property should be a single string. the subject should be a single string. the objects should be an array of strings. the actions should be an array of strings. The response should not include anything other than the specified object and properties. First check for existing information in this object ${JSON.stringify(
+                content: `Your task is to analyze the provided sentence: ${userPromptThree}, and extract meta information. Create a JSON object as the output with properties corresponding to the scene, subject, objects, and actions identified in the sentence. Ensure that the scene and subject are represented as single strings, while objects and actions are arrays of strings. Only include the specified properties in the response. Begin by checking for existing information in the following example context object: ${JSON.stringify(
                     imageContextFile
-                )}. If any matching information matches values in this given object, the response object should be merged with this input object. If no matches are found, a new object should be produced as the response.`,
+                )}. If any matching information aligns with values in this context object, merge the response object with the input object. In case no matches are found, generate a new object for the response.`,
             },
         ],
         model: "gpt-3.5-turbo",
